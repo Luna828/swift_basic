@@ -1,14 +1,16 @@
 import UIKit
 
 class Calculator {
-    func calculate(sign: String, firstNumber: Double, secondNumber: Double) -> Double {
-        
+    
+    let addResult = "+"
+    let subtractResult = "-"
+    let multiplyResult = "*"
+    let divideResult = "/"
+    let reminderResult = "%"
+    
+    //Lv1,2
+    func calculate1(sign: String, firstNumber: Double, secondNumber: Double) -> Double {
         var result: Double = 0.0
-        let addResult = "+"
-        let subtractResult = "-"
-        let multiplyResult = "*"
-        let divideResult = "/"
-        let reminderResult = "%"
         
         switch sign {
         case addResult :
@@ -38,7 +40,5 @@ class Calculator {
 }
 
 let calculator = Calculator()
-let result = calculator.calculate(sign: "%", firstNumber: 10, secondNumber: 3.0)
-
-print("RESULT = \(result)")
-
+let result = calculator.calculate1(sign: "*", firstNumber: 3, secondNumber: 1)
+print("RESULT : \(result)")

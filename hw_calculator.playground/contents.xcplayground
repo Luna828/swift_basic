@@ -4,5 +4,6 @@
         <page name='Calculator'/>
         <page name='Calculator_Lv3_StaticVersion'/>
         <page name='Calculator_Lv3'/>
+        <page name='Calculator_Lv4'/>
     </pages>
 </playground>

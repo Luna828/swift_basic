@@ -14,12 +14,14 @@ class RoomInfo { //2번 클릭 시 객실 정보 보기
 
 struct ReservationInfo { //예약한 목록
     var num : String //1
+    let roomName : String
     var checkInDate : String //체크인
     var checkOutDate : String //체크아웃
     let nights : Int //몇박며칠 (x2)
     
-    init(num: String, checkIn: String, checkOut: String, nights: Int) {
+    init(num: String, roomName: String, checkIn: String, checkOut: String, nights: Int) {
         self.num = num
+        self.roomName = roomName
         self.checkInDate = checkIn
         self.checkOutDate = checkOut
         self.nights = nights
@@ -28,11 +30,13 @@ struct ReservationInfo { //예약한 목록
 
 //입출금 내역
 class BankState {
+    let reasonType : String // 1.랜덤, 2.예약취소, 3.예약
     let type : String //1:입금, 2:출금
     let amount : Int //입출금 금액
     let date : Int //날짜
     
-    init(type: String, amount: Int, date: Int) {
+    init(reasonType: String, type: String, amount: Int, date: Int) {
+        self.reasonType = reasonType
         self.type = type
         self.amount = amount
         self.date = date
@@ -43,7 +47,7 @@ class HotelReservation {
     var fakeDate = 20230701 //입출금 내역
     
     var roomInfo: RoomInfo = RoomInfo(num: "1", roomName: "1번방", price: 100000) //RoomInfo인스턴트 생성
-    var reservationInfo: ReservationInfo = ReservationInfo(num: "1번방", checkIn: "20230701", checkOut: "20230705", nights: 2)
+    var reservationInfo: ReservationInfo = ReservationInfo(num: "1",roomName: "1번방",checkIn: "20230701", checkOut: "20230705", nights: 2)
     // ReservationInfo 인스턴트 생성
     
     var totalMoney = 0
@@ -94,10 +98,10 @@ class HotelReservation {
                 myRoomList()
             case 5 :
                 myRoomListSort()
-             // case 6, 7 : 들어갈곳.
-                
-                
-                
+            case 6 :
+                deleteReservation()
+            case 7 :
+                updateReservation()
             case 8 :
                 showBankStates()
             case 9 :
@@ -119,7 +123,7 @@ class HotelReservation {
         let randomMoney = (randomNum / 10000) * 10000
         totalMoney  += randomMoney
         fakeDate += 1
-        bankStateList.append(BankState.init(type: "1", amount: randomMoney, date: fakeDate))
+        bankStateList.append(BankState.init(reasonType: "랜덤", type: "입금", amount: randomMoney, date: fakeDate))
         print("\(randomMoney)가 입금되었습니다.")
     }
     
@@ -157,7 +161,7 @@ class HotelReservation {
         }
         if let room = roomList.first(where: {$0.num == num}) {
             let totalPrice = room.price * reservationInfo.nights
-            myReservationList.append(ReservationInfo(num: num, checkIn: checkIn, checkOut: checkOut, nights: 2))
+            myReservationList.append(ReservationInfo(num: num, roomName: "1번방", checkIn: checkIn, checkOut: checkOut, nights: 2))
             if totalMoney >= totalPrice {
                 totalMoney -= totalPrice
                 print("예약이 완료되었습니다.")
@@ -187,9 +191,43 @@ class HotelReservation {
     }
         
     
+    //6번문제
+    func deleteReservation(){
+        
+        // 예약 목록이 보여야함!
+        if myReservationList.isEmpty {
+           print("예약이 없습니다")
+        }  else {
+            print("예약 목록입니다")
+            for (index, reservationList) in myReservationList.enumerated() {
+                print("\(index + 1). \(reservationList.roomName) 체크인: \(reservationList.checkInDate) 체크아웃: \(reservationList.checkOutDate)")
+            }
+            print("취소할 예약 번호를 입력하세요")
+            guard let numStr = readLine(),
+                  let num = Int(numStr) else {
+                print("번호를 입력해주세요")
+                return
+            }
+            
+            if num > 0 && num <= myReservationList.count {
+                let deleteNum = num - 1 //사람들은 1부터 세고, 컴퓨터의 배열은 0부터 시작함
+                let deleteReservation = myReservationList.remove(at: deleteNum)
+                print("예약이 취소되었습니다")
+            } else {
+                print("없는 예약내역입니다")
+            }
+        }
+    }
+    
+    //7번문제
+    func updateReservation(){
+        
+    }
+    
+    //8번문제
     func showBankStates() {
         for bankState in bankStateList {
-            print("\(bankState.type), \(bankState.amount), \(bankState.date)")
+            print("\(bankState.reasonType)(으)로 \(bankState.amount)원이 \(bankState.type)되었습니다")
         }
     }
     

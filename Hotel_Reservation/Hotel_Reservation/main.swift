@@ -1,9 +1,9 @@
 import Foundation
 
-class RoomInfo {
-    let num : String
-    let roomName : String
-    let price : Int
+class RoomInfo { //2번 클릭 시 객실 정보 보기
+    let num : String // 1
+    let roomName : String // 1번방
+    let price : Int //가격
     
     init(num: String, roomName: String, price: Int) {
         self.num = num
@@ -12,11 +12,11 @@ class RoomInfo {
     }
 }
 
-class ReservationInfo {
-    let num : String
-    let checkInDate : String
-    let checkOutDate : String
-    let nights : Int
+class ReservationInfo { //예약한 목록
+    let num : String //1
+    let checkInDate : String //체크인
+    let checkOutDate : String //체크아웃
+    let nights : Int //몇박며칠 (x2)
     
     init(num: String, checkIn: String, checkOut: String, nights: Int) {
         self.num = num
@@ -40,7 +40,7 @@ class BankState {
 }
 
 class HotelReservation {
-    var fakeDate = 20230701
+    var fakeDate = 20230701 //입출금 내역
     
     var totalMoney = 0
     var myMoney: [Int] = []
@@ -76,7 +76,7 @@ class HotelReservation {
             guard let chooseNumStr = readLine(),
                   let num = Int(chooseNumStr) else {
                 print("번호를 잘못 입력하셨습니다")
-                return
+                continue
             }
             
             switch num {
@@ -122,7 +122,7 @@ class HotelReservation {
             print("\(name) 1박 \(price)원")
         }
     }
-
+    //3번문제
     func roomReservation(){
         print("---------------------------------------")
         print("방 번호, 체크인 날짜, 체크아웃 날짜를 각각 입력해주세요")
@@ -132,30 +132,34 @@ class HotelReservation {
         guard let num = readLine() else {
             print("번호를 입력해주세요")
             return
-        }
+        }; RoomInfo.roomName = num
         
-//        if let roomNum = roomList.first(where: {$0.num == num}),
-////           let roomName = {$0.name},
-////           let roomPrice = {$0.price} {
-//
-//            print("\(roomName)을 선택하셨습니다")
-//            print("체크인 날짜를 입력하세요 (2023-07-01)")
-//            guard let checkInDate = readLine() else {
-//                print("날짜를 입력하세요")
-//                return
-//            }
-//
-//            print("체크 아웃 날짜를 입력하세요 (2023-07-02")
-//            guard let checkOutDate = readLine() else {
-//                       print("날짜를 입력하세요")
-//                       return
-//                   }
-//
-//            myReservationList.append(ReservationInfo.init(num: roomNum, checkIn: checkInDate, checkOut: checkOutDate, nights: 2))
-//
-//            print("예약이 완료되었습니다")
-            
- //       }
+        
+        
+        
+        //        if let roomNum = roomList.first(where: {$0.num == num}),
+        ////           let roomName = {$0.name},
+        ///
+        ////           let roomPrice = {$0.price} {
+        //
+        //            print("\(roomName)을 선택하셨습니다")
+        //            print("체크인 날짜를 입력하세요 (2023-07-01)")
+        //            guard let checkInDate = readLine() else {
+        //                print("날짜를 입력하세요")
+        //                return
+        //            }
+        //
+        //            print("체크 아웃 날짜를 입력하세요 (2023-07-02")
+        //            guard let checkOutDate = readLine() else {
+        //                       print("날짜를 입력하세요")
+        //                       return
+        //                   }
+        //
+        //            myReservationList.append(ReservationInfo.init(num: roomNum, checkIn: checkInDate, checkOut: checkOutDate, nights: 2))
+        //
+        //            print("예약이 완료되었습니다")
+        
+        //       }
     }
     
     func showBankStates() {

@@ -14,9 +14,9 @@ class RoomInfo {
 
 class ReservationInfo {
     let num : String
-    let roomName : String
-    let checkInDate : String
-    let checkOutDate : String
+    var roomName : String
+    var checkInDate : String
+    var checkOutDate : String
     let nights : Int
     
     init(num: String, roomName: String, checkIn: String, checkOut: String, nights: Int) {
@@ -58,7 +58,10 @@ class HotelReservation {
         RoomInfo.init(num: "5", roomName: "5번방", price: 500000)
     ]
     
-    var myReservationList : [ReservationInfo] = []
+    var myReservationList : [ReservationInfo] = [
+        ReservationInfo.init(num: "1", roomName: "1번방", checkIn: "2023-07-01", checkOut: "2023-07-03", nights: 2),
+        ReservationInfo.init(num: "3", roomName: "3번방", checkIn: "2023-07-01", checkOut: "2023-07-03", nights: 2)
+    ]
     
     func callCenter() {
 
@@ -172,7 +175,6 @@ class HotelReservation {
     
     //6번문제
     func deleteReservation(){
-        
         // 예약 목록이 보여야함!
         if myReservationList.isEmpty {
            print("예약이 없습니다")
@@ -190,8 +192,12 @@ class HotelReservation {
             
             if num > 0 && num <= myReservationList.count {
                 let deleteNum = num - 1 //사람들은 1부터 세고, 컴퓨터의 배열은 0부터 시작함
-                let deleteReservation = myReservationList.remove(at: deleteNum)
-                print("예약이 취소되었습니다")
+                let deleteReservationList = myReservationList.remove(at: deleteNum)
+                let refund = deleteReservationList.nights * (roomList.first{$0.roomName == deleteReservationList.roomName}?.price ?? 0)
+                totalMoney += refund
+                bankStateList.append(BankState.init(reasonType: "환불", type: "입금", amount: refund, date: fakeDate))
+                print("예약이 취소되었습니다 \(refund)원이 환불되었습니다")
+                
             } else {
                 print("없는 예약내역입니다")
             }
@@ -200,17 +206,89 @@ class HotelReservation {
     
     //7번문제
     func updateReservation(){
-        
+        if myReservationList.isEmpty {
+            print("예약이 없습니다")
+        } else {
+            print("예약 목록입니다")
+            for (index, reservationList) in myReservationList.enumerated() {
+                print("\(index + 1). \(reservationList.roomName) 체크인: \(reservationList.checkInDate) 체크아웃: \(reservationList.checkOutDate)")
+            }
+            print("변경할 예약 번호를 입력하세요")
+            guard let numStr = readLine(),
+                  let num = Int(numStr) else {
+                print("번호를 입력해주세요")
+                return
+            }
+            
+            if num > 0 && num <= myReservationList.count {
+                let updateNum = num - 1
+                var updateReservationList = myReservationList[updateNum]
+                
+                print("먼저 호텔 방 목록을 알려드리겠습니다")
+                print(hotelInfo)
+                print("새로운 방 번호를 입력해주세요")
+                guard let roomNum = readLine(),
+                      let roomName = roomList.first(where: {$0.num == roomNum})?.roomName else {
+                    print("옳은 방 번호를 입력해주세요")
+                    return
+                }
+                
+                print("새로운 체크인 날짜를 입력하세요 (2023-07-01)")
+                guard let checkInDate = readLine() else {
+                    print("날짜를 다시 입력해주세요")
+                    return
+                }
+                
+                print("새로운 체크아웃 날짜를 입력하세요 (2023-07-02")
+                guard let checkOutDate = readLine() else {
+                    print("날짜를 다시 입력해주세요")
+                    return
+                }
+                
+                // 아직 코드 작동 에러.. 
+                if let newRoomPrice = roomList.first(where: { $0.roomName == roomName })?.price {
+                    let nightsDiff = abs(updateReservationList.nights)
+                    let additionalPayment = newRoomPrice * nightsDiff
+                    
+                    if updateReservationList.nights < 0 { // 추가 결제
+                        if additionalPayment <= totalMoney {
+                            totalMoney += additionalPayment
+                            bankStateList.append(BankState(reasonType: "차액", type: "입금", amount: additionalPayment, date: fakeDate))
+                        } else {
+                            print("잔액이 부족하여 예약 변경을 완료할 수 없습니다")
+                            return
+                        }
+                    } else if updateReservationList.nights > 0 { // 환불
+                        totalMoney -= additionalPayment
+                        bankStateList.append(BankState(reasonType: "차액", type: "출금", amount: additionalPayment, date: fakeDate))
+                    }
+                    
+                    updateReservationList.roomName = roomName
+                    updateReservationList.checkInDate = checkInDate
+                    updateReservationList.checkOutDate = checkOutDate
+                    
+                    myReservationList[updateNum] = updateReservationList
+                        print("\(updateReservationList.roomName) 체크인: \(updateReservationList.checkInDate) 체크아웃: \(updateReservationList.checkOutDate)으로 예약이 변경되었습니다")
+                } else {
+                    print("유효하지 않은 예약 번호입니다")
+                }
+            } else {
+                print("유효하지 않은 예약 번호입니다")
+            }
+        }
+            
     }
     
     //8번문제
     func showBankStates() {
-        for bankState in bankStateList {
-            print("\(bankState.reasonType)(으)로 \(bankState.amount)원이 \(bankState.type)되었습니다")
+        if bankStateList.isEmpty {
+            print("아무런 잔액이 없습니다")
+        } else {
+            for bankState in bankStateList {
+                print("\(bankState.reasonType)(으)로 \(bankState.amount)원이 \(bankState.type)되었습니다")
+            }
         }
     }
-    
-    
 } //HotelReservation
 
 let call = HotelReservation()

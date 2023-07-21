@@ -58,10 +58,7 @@ class HotelReservation {
         RoomInfo.init(num: "5", roomName: "5번방", price: 500000)
     ]
     
-    var myReservationList : [ReservationInfo] = [
-        ReservationInfo.init(num: "1", roomName: "1번방", checkIn: "2023-07-01", checkOut: "2023-07-03", nights: 2),
-        ReservationInfo.init(num: "3", roomName: "3번방", checkIn: "2023-07-01", checkOut: "2023-07-03", nights: 2)
-    ]
+    var myReservationList : [ReservationInfo] = []
     
     func callCenter() {
 
@@ -173,6 +170,21 @@ class HotelReservation {
  //       }
     }
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     //6번문제
     func deleteReservation(){
         // 예약 목록이 보여야함!
@@ -245,7 +257,7 @@ class HotelReservation {
                     return
                 }
                 
-                // 아직 코드 작동 에러.. 
+                // 아직 코드 작동 에러..
                 if let newRoomPrice = roomList.first(where: { $0.roomName == roomName })?.price {
                     let nightsDiff = abs(updateReservationList.nights)
                     let additionalPayment = newRoomPrice * nightsDiff

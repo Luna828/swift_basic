@@ -15,7 +15,7 @@ class RoomInfo { //2번 클릭 시 객실 정보 보기
 
 struct ReservationInfo { //예약한 목록
     var num : String //1
-    let roomName : String
+    var roomName : String
     var checkInDate : String //체크인
     var checkOutDate : String //체크아웃
     let nights : Int //몇박며칠 (x2)
@@ -165,6 +165,7 @@ class HotelReservation {
             myReservationList.append(ReservationInfo(num: num, roomName: "1번방", checkIn: checkIn, checkOut: checkOut, nights: 2))
             if totalMoney >= totalPrice {
                 totalMoney -= totalPrice
+                bankStateList.append(BankState(reasonType: "호텔예약", type: "출금", amount: totalPrice, date: fakeDate))
                 print("예약이 완료되었습니다.")
                 print("남은 돈: \(totalMoney)")
             }else {
@@ -243,7 +244,7 @@ class HotelReservation {
                 var updateReservationList = myReservationList[updateNum]
                 
                 print("먼저 호텔 방 목록을 알려드리겠습니다")
-                print(hotelInfo)
+                print(hotelInfo())
                 print("새로운 방 번호를 입력해주세요")
                 guard let roomNum = readLine(),
                       let roomName = roomList.first(where: {$0.num == roomNum})?.roomName else {
@@ -263,7 +264,7 @@ class HotelReservation {
                     return
                 }
                 
-                // 아직 코드 작동 에러..
+                // 아직 코드 작동 에러.. -> 머리아파요..^^ GPT 도움도 받아봤는데 말짱도루묵입니당ㅎㅎ 조금 더 머리를 써봐야할 것 같아요!
                 if let newRoomPrice = roomList.first(where: { $0.roomName == roomName })?.price {
                     let nightsDiff = abs(updateReservationList.nights)
                     let additionalPayment = newRoomPrice * nightsDiff

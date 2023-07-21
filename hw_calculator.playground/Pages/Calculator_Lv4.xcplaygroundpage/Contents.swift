@@ -6,7 +6,6 @@ protocol AbstractOperation {
 }
 
 class AddOperation: AbstractOperation {
-    
     func operate(first: Double, second: Double) -> Double {
         return first + second
     }

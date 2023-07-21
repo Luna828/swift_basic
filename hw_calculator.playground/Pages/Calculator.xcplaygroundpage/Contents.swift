@@ -40,5 +40,13 @@ class Calculator {
 }
 
 let calculator = Calculator()
-let result = calculator.calculate1(sign: "*", firstNumber: 3, secondNumber: 1)
-print("RESULT : \(result)")
+let result1 = calculator.calculate1(sign: "+", firstNumber: 3, secondNumber: 1)
+let result2 = calculator.calculate1(sign: "-", firstNumber: 1, secondNumber: 3)
+let result3 = calculator.calculate1(sign: "*", firstNumber: 3, secondNumber: 1)
+let result4 = calculator.calculate1(sign: "/", firstNumber: 3, secondNumber: 1)
+let result5 = calculator.calculate1(sign: "%", firstNumber: 3, secondNumber: 1)
+print("RESULT1 : \(result1)")
+print("RESULT2 : \(result2)")
+print("RESULT3 : \(result3)")
+print("RESULT4 : \(result4)")
+print("RESULT5 : \(result5)")

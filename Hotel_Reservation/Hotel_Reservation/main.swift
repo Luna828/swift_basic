@@ -1,17 +1,60 @@
 import Foundation
 
+class RoomInfo {
+    let num : String
+    let roomName : String
+    let price : Int
+    
+    init(num: String, roomName: String, price: Int) {
+        self.num = num
+        self.roomName = roomName
+        self.price = price
+    }
+}
+
+class ReservationInfo {
+    let num : String
+    let checkInDate : String
+    let checkOutDate : String
+    let nights : Int
+    
+    init(num: String, checkIn: String, checkOut: String, nights: Int) {
+        self.num = num
+        self.checkInDate = checkIn
+        self.checkOutDate = checkOut
+        self.nights = nights
+    }
+}
+
+//입출금 내역
+class BankState {
+    let type : String //1:입금, 2:출금
+    let amount : Int //입출금 금액
+    let date : Int //날짜
+    
+    init(type: String, amount: Int, date: Int) {
+        self.type = type
+        self.amount = amount
+        self.date = date
+    }
+}
+
 class HotelReservation {
+    var fakeDate = 20230701
     
     var totalMoney = 0
     var myMoney: [Int] = []
+    var bankStateList: [BankState] = []
     
-    var hotelList: [[String:String]] = [
-        ["name":"1번방","date":"1박","price":"100000원","체크인":"00-00", "체크아웃":"00-00"],
-        ["name":"2번방","date":"1박","price":"200000원","체크인":"00-00", "체크아웃":"00-00"],
-        ["name":"3번방","date":"1박","price":"300000원","체크인":"00-00", "체크아웃":"00-00"],
-        ["name":"4번방","date":"1박","price":"400000원","체크인":"00-00", "체크아웃":"00-00"],
-        ["name":"5번방","date":"1박","price":"500000원","체크인":"00-00", "체크아웃":"00-00"],
+    var roomList: [RoomInfo] = [
+        RoomInfo.init(num: "1", roomName: "1번방", price: 100000),
+        RoomInfo.init(num: "2", roomName: "2번방", price: 200000),
+        RoomInfo.init(num: "3", roomName: "3번방", price: 300000),
+        RoomInfo.init(num: "4", roomName: "4번방", price: 400000),
+        RoomInfo.init(num: "5", roomName: "5번방", price: 500000)
     ]
+    
+    var myReservationList : [ReservationInfo] = []
     
     func callCenter() {
 
@@ -38,9 +81,15 @@ class HotelReservation {
             
             switch num {
             case 1 :
-                randomNum()
+                initMyTotalMoney()
             case 2 :
                 hotelInfo()
+            case 3 :
+                roomReservation()
+            case 4 :
+                print("")
+            case 8 :
+                showBankStates()
             case 9 :
                 print("통장에 있는 총 금액은 \(totalMoney)원 입니다")
             case 0 :
@@ -50,38 +99,71 @@ class HotelReservation {
                 print("다시 선택해주세요")
                 continue
             } //switch
-            
         } // calculating
-        
-        //1번문제
-        func randomNum(){
-            var randomNum = Int.random(in: 100000...500000)
-            // 생성된 램덤 값에 10000을 나누고 곱하면 뒷 자리의 랜덤 숫자가 다 떨어져 나감
-            var randomMoney = (randomNum / 10000) * 10000
-            totalMoney  += randomMoney
-            print("\(randomMoney)가 입금되었습니다.")
-        }
-        
-        //2번문제
-        func hotelInfo(){
-            
-            for option in hotelList {
-                if let name = option["name"],
-                   let date = option["date"],
-                   let price = option["price"] {
-                    print("\(name) \(date) \(price)")
-                }
-                
-            }
-        }
-        
-        //    func showRoom(){
-        //        for i in 1...5 {
-        //            print("\(i)번방 1박 \(i)0000원")
-        //        }
-        //    }
-        
     } // callCenter
+    
+    //1번문제
+    func initMyTotalMoney(){
+        let randomNum = Int.random(in: 100000...500000)
+        // 생성된 램덤 값에 10000을 나누고 곱하면 뒷 자리의 랜덤 숫자가 다 떨어져 나감
+        let randomMoney = (randomNum / 10000) * 10000
+        totalMoney  += randomMoney
+        fakeDate += 1
+        bankStateList.append(BankState.init(type: "1", amount: randomMoney, date: fakeDate))
+        print("\(randomMoney)가 입금되었습니다.")
+    }
+    
+    //2번문제
+    func hotelInfo(){
+        for roomInfo in roomList {
+            let name = roomInfo.roomName
+            let price = roomInfo.price
+            
+            print("\(name) 1박 \(price)원")
+        }
+    }
+
+    func roomReservation(){
+        print("---------------------------------------")
+        print("방 번호, 체크인 날짜, 체크아웃 날짜를 각각 입력해주세요")
+        print()
+        print("---------------------------------------")
+        print("방 번호를 입력하세요")
+        guard let num = readLine() else {
+            print("번호를 입력해주세요")
+            return
+        }
+        
+//        if let roomNum = roomList.first(where: {$0.num == num}),
+////           let roomName = {$0.name},
+////           let roomPrice = {$0.price} {
+//
+//            print("\(roomName)을 선택하셨습니다")
+//            print("체크인 날짜를 입력하세요 (2023-07-01)")
+//            guard let checkInDate = readLine() else {
+//                print("날짜를 입력하세요")
+//                return
+//            }
+//
+//            print("체크 아웃 날짜를 입력하세요 (2023-07-02")
+//            guard let checkOutDate = readLine() else {
+//                       print("날짜를 입력하세요")
+//                       return
+//                   }
+//
+//            myReservationList.append(ReservationInfo.init(num: roomNum, checkIn: checkInDate, checkOut: checkOutDate, nights: 2))
+//
+//            print("예약이 완료되었습니다")
+            
+ //       }
+    }
+    
+    func showBankStates() {
+        for bankState in bankStateList {
+            print("\(bankState.type), \(bankState.amount), \(bankState.date)")
+        }
+    }
+    
     
 } //HotelReservation
 

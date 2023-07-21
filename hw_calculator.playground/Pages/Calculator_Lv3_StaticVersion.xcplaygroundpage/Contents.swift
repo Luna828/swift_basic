@@ -40,7 +40,10 @@ print("RESULT = \(result3)")
 
 //1번 기능
 //static 정적 메서드를 사용
+//초기화가 안되는 단점이 있음
 class AddOperation {
+    //인스턴스 생성시, 프로퍼티가 생기면 초기화 안됨 static let add = "+"
+    
     static func operate(firstNumber: Double, secondNumber: Double) -> Double {
         
         return firstNumber + secondNumber

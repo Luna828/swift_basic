@@ -1,9 +1,9 @@
 import Foundation
 
-class RoomInfo {
-    let num : String
-    let roomName : String
-    let price : Int
+class RoomInfo { //2번 클릭 시 객실 정보 보기
+    let num : String // 1
+    let roomName : String // 1번방
+    let price : Int //가격
     
     init(num: String, roomName: String, price: Int) {
         self.num = num
@@ -12,12 +12,13 @@ class RoomInfo {
     }
 }
 
-class ReservationInfo {
-    let num : String
-    var roomName : String
-    var checkInDate : String
-    var checkOutDate : String
-    let nights : Int
+
+struct ReservationInfo { //예약한 목록
+    var num : String //1
+    let roomName : String
+    var checkInDate : String //체크인
+    var checkOutDate : String //체크아웃
+    let nights : Int //몇박며칠 (x2)
     
     init(num: String, roomName: String, checkIn: String, checkOut: String, nights: Int) {
         self.num = num
@@ -44,7 +45,11 @@ class BankState {
 }
 
 class HotelReservation {
-    var fakeDate = 20230701
+    var fakeDate = 20230701 //입출금 내역
+    
+    var roomInfo: RoomInfo = RoomInfo(num: "1", roomName: "1번방", price: 100000) //RoomInfo인스턴트 생성
+    var reservationInfo: ReservationInfo = ReservationInfo(num: "1",roomName: "1번방",checkIn: "20230701", checkOut: "20230705", nights: 2)
+    // ReservationInfo 인스턴트 생성
     
     var totalMoney = 0
     var myMoney: [Int] = []
@@ -58,7 +63,7 @@ class HotelReservation {
         RoomInfo.init(num: "5", roomName: "5번방", price: 500000)
     ]
     
-    var myReservationList : [ReservationInfo] = []
+    var myReservationList : [ReservationInfo] = [] // 나의 예약목록 리스트
     
     func callCenter() {
 
@@ -80,7 +85,7 @@ class HotelReservation {
             guard let chooseNumStr = readLine(),
                   let num = Int(chooseNumStr) else {
                 print("번호를 잘못 입력하셨습니다")
-                return
+                continue
             }
             
             switch num {
@@ -91,11 +96,9 @@ class HotelReservation {
             case 3 :
                 roomReservation()
             case 4 :
-                for reservationLists in myReservationList {
-                    print("\(reservationLists.num) \(reservationLists.checkInDate) \(reservationLists.checkOutDate)")
-                }
+                myRoomList()
             case 5 :
-                print("")
+                myRoomListSort()
             case 6 :
                 deleteReservation()
             case 7 :
@@ -135,6 +138,8 @@ class HotelReservation {
         }
     }
 
+
+    //3번문제 -> night(몇박인지): 2박 fix
     func roomReservation(){
         print("---------------------------------------")
         print("방 번호, 체크인 날짜, 체크아웃 날짜를 각각 입력해주세요")
@@ -145,46 +150,47 @@ class HotelReservation {
             print("번호를 입력해주세요")
             return
         }
-        
-//        if let roomNum = roomList.first(where: {$0.num == num}),
-////           let roomName = {$0.name},
-////           let roomPrice = {$0.price} {
-//
-//            print("\(roomName)을 선택하셨습니다")
-//            print("체크인 날짜를 입력하세요 (2023-07-01)")
-//            guard let checkInDate = readLine() else {
-//                print("날짜를 입력하세요")
-//                return
-//            }
-//
-//            print("체크 아웃 날짜를 입력하세요 (2023-07-02")
-//            guard let checkOutDate = readLine() else {
-//                       print("날짜를 입력하세요")
-//                       return
-//                   }
-//
-//            myReservationList.append(ReservationInfo.init(num: roomNum, checkIn: checkInDate, checkOut: checkOutDate, nights: 2))
-//
-//            print("예약이 완료되었습니다")
+        print("체크인 날짜를 입력하세요 (ex. 2023-07-01)")
+        guard let checkIn = readLine() else {
+            print("날짜를 입력해주세요")
+            return
+        }
+        print("체크아웃 날짜를 입력하세요 (ex. 2023-07-01)")
+        guard let checkOut = readLine() else {
+            print("날짜를 입력해주세요")
+            return
+        }
+        if let room = roomList.first(where: {$0.num == num}) {
+            let totalPrice = room.price * reservationInfo.nights
+            myReservationList.append(ReservationInfo(num: num, roomName: "1번방", checkIn: checkIn, checkOut: checkOut, nights: 2))
+            if totalMoney >= totalPrice {
+                totalMoney -= totalPrice
+                print("예약이 완료되었습니다.")
+                print("남은 돈: \(totalMoney)")
+            }else {
+                print("돈이 부족합니다.")
+                myReservationList.removeAll()
+                return
+            }
             
- //       }
+        }
+        
+        
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    //4번 문제 -> 1박 가격 안나옴..
+    func myRoomList() {
+        for (index ,myReservationLists) in myReservationList.enumerated() {
+                    print("\(index + 1). \(myReservationLists.num)번방, 체크인: \(myReservationLists.checkInDate), 체크아웃: \(myReservationLists.checkOutDate)")
+                }
+        }
+    //5번 문제 -> 1박 가격 안나옴..
+    func myRoomListSort() {
+        let myReservationLists = myReservationList.sorted(by: {$0.checkInDate < $1.checkInDate})
+        for (index ,myReservationList) in myReservationLists.enumerated() {
+                    print("\(index + 1). \(myReservationList.num)번방, 체크인: \(myReservationList.checkInDate), 체크아웃: \(myReservationList.checkOutDate)")
+                }
+    }
+   
     //6번문제
     func deleteReservation(){
         // 예약 목록이 보여야함!

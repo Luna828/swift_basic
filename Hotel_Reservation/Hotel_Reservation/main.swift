@@ -141,6 +141,10 @@ class HotelReservation {
 
     //3번문제 -> night(몇박인지): 2박 fix
     func roomReservation(){
+        guard totalMoney != 0 else {
+            print("임금한 돈이 0원입니다. 1번을 눌러 돈을 입금해주세요")
+            return
+        }
         print("---------------------------------------")
         print("방 번호, 체크인 날짜, 체크아웃 날짜를 각각 입력해주세요")
         print()

@@ -10,7 +10,7 @@ class TableViewNameCell: UITableViewCell {
     @IBOutlet weak var contentLabel: UILabel!
     
     //셀이 랜더링 될 때
-    override class func awakeFromNib() {
+    override func awakeFromNib() {
         super.awakeFromNib()
         
         print("TableViewNameCell - awakeFromNib() called")

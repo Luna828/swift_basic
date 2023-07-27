@@ -47,6 +47,7 @@ class BankState {
 class HotelReservation {
     var fakeDate = 20230701 //입출금 내역
     var totalMoney = 0
+    var myAccount = 0
     var myMoney: [Int] = []
     var bankStateList: [BankState] = []
     
@@ -312,8 +313,16 @@ class HotelReservation {
             print("아무런 잔액이 없습니다")
         } else {
             for bankState in bankStateList {
-                print("\(bankState.reasonType)(으)로 \(bankState.amount)원이 \(bankState.type)되었습니다")
+                myAccount += bankState.amount
+                myMoney.append(myAccount)
+                print(
+                    "\(bankState.reasonType)(으)로 \(bankState.amount)원이 \(bankState.type)되었습니다."
+                )
             }
+            for account in myMoney {
+                print("현재 잔액 \(account)원")
+            }
+            
         }
     }
 } //HotelReservation

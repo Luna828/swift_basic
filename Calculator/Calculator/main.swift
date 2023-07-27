@@ -37,7 +37,8 @@ class Calculator {
             let result: Double
             
             switch operatorInput {
-            case addResult:
+                
+            ase addResult:
                 result = firstNumber + secondNumber
             case subtractResult:
                 result = firstNumber - secondNumber

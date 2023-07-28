@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB2294FF2A7398120018E64A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2294FE2A7398120018E64A /* ViewController.swift */; };
 		FBC41C122A6FA58F0076FAD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC41C112A6FA58F0076FAD3 /* AppDelegate.swift */; };
 		FBC41C142A6FA58F0076FAD3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC41C132A6FA58F0076FAD3 /* SceneDelegate.swift */; };
-		FBC41C162A6FA58F0076FAD3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC41C152A6FA58F0076FAD3 /* ViewController.swift */; };
+		FBC41C162A6FA58F0076FAD3 /* sound in Sources */ = {isa = PBXBuildFile; fileRef = FBC41C152A6FA58F0076FAD3 /* sound */; };
 		FBC41C192A6FA58F0076FAD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBC41C172A6FA58F0076FAD3 /* Main.storyboard */; };
 		FBC41C1B2A6FA5900076FAD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBC41C1A2A6FA5900076FAD3 /* Assets.xcassets */; };
 		FBC41C1E2A6FA5900076FAD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBC41C1C2A6FA5900076FAD3 /* LaunchScreen.storyboard */; };
@@ -20,10 +21,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FB2294FE2A7398120018E64A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FBC41C0E2A6FA58F0076FAD3 /* SampleUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBC41C112A6FA58F0076FAD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBC41C132A6FA58F0076FAD3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FBC41C152A6FA58F0076FAD3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FBC41C152A6FA58F0076FAD3 /* sound */ = {isa = PBXFileReference; lastKnownFileType = text; path = sound; sourceTree = "<group>"; };
 		FBC41C182A6FA58F0076FAD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FBC41C1A2A6FA5900076FAD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FBC41C1D2A6FA5900076FAD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -67,7 +69,7 @@
 				FBC41C262A70A4120076FAD3 /* TableViewNameCell.xib */,
 				FBC41C112A6FA58F0076FAD3 /* AppDelegate.swift */,
 				FBC41C132A6FA58F0076FAD3 /* SceneDelegate.swift */,
-				FBC41C152A6FA58F0076FAD3 /* ViewController.swift */,
+				FBC41C152A6FA58F0076FAD3 /* sound */,
 				FBC41C172A6FA58F0076FAD3 /* Main.storyboard */,
 				FBC41C1A2A6FA5900076FAD3 /* Assets.xcassets */,
 				FBC41C1C2A6FA5900076FAD3 /* LaunchScreen.storyboard */,
@@ -75,6 +77,7 @@
 				FBC41C282A70D4D30076FAD3 /* TableViewNameCell.swift */,
 				FBC41C2B2A71518F0076FAD3 /* SettingCell.xib */,
 				FBC41C2D2A7152820076FAD3 /* SettingCell.swift */,
+				FB2294FE2A7398120018E64A /* ViewController.swift */,
 			);
 			path = SampleUIKit;
 			sourceTree = "<group>";
@@ -152,7 +155,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBC41C162A6FA58F0076FAD3 /* ViewController.swift in Sources */,
+				FB2294FF2A7398120018E64A /* ViewController.swift in Sources */,
+				FBC41C162A6FA58F0076FAD3 /* sound in Sources */,
 				FBC41C122A6FA58F0076FAD3 /* AppDelegate.swift in Sources */,
 				FBC41C292A70D4D30076FAD3 /* TableViewNameCell.swift in Sources */,
 				FBC41C2E2A7152820076FAD3 /* SettingCell.swift in Sources */,

@@ -52,20 +52,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
-//        visualEffectView.alpha = 0.5
-//        visualEffectView.frame = (self.navigationController?.navigationBar.bounds.insetBy(dx: 40, dy: 40).offsetBy(dx: 0, dy: 0))!
-        
-        //self.navigationController?.navigationBar.addSubview(visualEffectView)
-        
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-//        self.navigationController?.navigationBar.shadowImage = UIImage()
-//        self.navigationController?.view.backgroundColor = .clear
-//        self.navigationController?.navigationBar.isTranslucent = true
-//        navigationController?.navigationBar.barTintColor = UIColor.clear.withAlphaComponent(0.3)
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
-        UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().isTranslucent = true
+
         //아주중요
         settingTableView.delegate = self
         settingTableView.dataSource = self
@@ -110,7 +97,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             
             cell.settingImg.image = networkList[indexPath.row].img
             cell.settingLabel.text = networkList[indexPath.row].name
-            
+
             return cell
         } else if indexPath.section == 2 {
             

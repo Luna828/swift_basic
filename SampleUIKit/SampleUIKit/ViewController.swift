@@ -5,7 +5,9 @@ struct DummyData {
     let name: String
 }
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UISearchBarDelegate {
+    
+
     
     @IBOutlet weak var settingTableView: UITableView!
     
@@ -52,9 +54,19 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let didPerformSearch: Bool = false
+        
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.delegate = self
+        navigationItem.searchController = searchController
+        
+        if didPerformSearch == true {
+        }else{
+            settingTableView.isHidden = false
+        }
+        
         //아주중요
-        settingTableView.delegate = self
+        //settingTableView.delegate = self
         settingTableView.dataSource = self
     }
     
@@ -68,7 +80,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         if section == 0 {
             return 1
         } else if section == 1 {
-            return networkList.count
+            return networkList.count + 1
         } else if section == 2 {
             return notificationList.count
         } else if section == 3 {
@@ -82,6 +94,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         settingTableView.register(UINib(nibName: "SettingCell", bundle: nil), forCellReuseIdentifier: "SettingCell")
         let cell = settingTableView.dequeueReusableCell(withIdentifier: "SettingCell", for: indexPath) as! SettingCell
         
+        
         if indexPath.section == 0 {
             //profile 셀 등록
             settingTableView.register(UINib(nibName: "TableViewNameCell", bundle: nil), forCellReuseIdentifier: "TableViewNameCell")
@@ -91,24 +104,37 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = settingTableView.dequeueReusableCell(withIdentifier: "TableViewNameCell", for: indexPath) as! TableViewNameCell
             cell.profileImg.image = UIImage(systemName: "person")
             cell.userNameLabel.text = profileName
+            cell.accessoryType = .disclosureIndicator
             
             return cell
         } else if indexPath.section == 1 {
+            settingTableView.register(UINib(nibName: "toggleCell", bundle: nil), forCellReuseIdentifier: "toggleCell")
+            settingTableView.rowHeight = UITableView.automaticDimension
+            settingTableView.estimatedRowHeight = 120
             
-            cell.settingImg.image = networkList[indexPath.row].img
-            cell.settingLabel.text = networkList[indexPath.row].name
-
-            return cell
+            if indexPath.row == 0 {
+                let toggleCell = settingTableView.dequeueReusableCell(withIdentifier: "toggleCell", for: indexPath) as! toggleCell
+                
+                return toggleCell
+            } else {
+                cell.settingImg.image = networkList[indexPath.row - 1].img
+                cell.settingLabel.text = networkList[indexPath.row - 1].name
+                cell.accessoryType = .disclosureIndicator
+                
+                return cell
+            }
         } else if indexPath.section == 2 {
             
             cell.settingImg.image = notificationList[indexPath.row].img
             cell.settingLabel.text = notificationList[indexPath.row].name
+            cell.accessoryType = .disclosureIndicator
             
             return cell
         } else {
             
             cell.settingImg.image = contentList[indexPath.row].img
             cell.settingLabel.text = contentList[indexPath.row].name
+            cell.accessoryType = .disclosureIndicator
             
             return cell
         }

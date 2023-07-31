@@ -28,25 +28,11 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YX0-5X-eBV">
-                        <rect key="frame" x="348" y="10" width="40" height="40"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="40" id="e3S-AC-y5f"/>
-                            <constraint firstAttribute="height" constant="40" id="i4j-3I-jgU"/>
-                        </constraints>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" image="chevron.right.to.line" catalog="system" title=""/>
-                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="fS2-S0-KhF" firstAttribute="centerY" secondItem="bti-91-bgt" secondAttribute="centerY" id="BbF-p4-rMU"/>
-                    <constraint firstAttribute="trailing" secondItem="YX0-5X-eBV" secondAttribute="trailing" constant="20" id="Hzy-tM-cCQ"/>
-                    <constraint firstAttribute="bottom" secondItem="YX0-5X-eBV" secondAttribute="bottom" constant="10" id="U26-i3-H82"/>
                     <constraint firstAttribute="bottom" secondItem="bti-91-bgt" secondAttribute="bottom" constant="5" id="Vld-5Z-ZTS"/>
-                    <constraint firstItem="YX0-5X-eBV" firstAttribute="top" secondItem="IQc-rj-CiS" secondAttribute="top" constant="10" id="an1-2t-Iao"/>
-                    <constraint firstAttribute="trailing" secondItem="YX0-5X-eBV" secondAttribute="trailing" constant="15" id="axI-CZ-chT"/>
                     <constraint firstItem="bti-91-bgt" firstAttribute="top" secondItem="IQc-rj-CiS" secondAttribute="top" constant="5" id="dR6-DA-JKA"/>
-                    <constraint firstAttribute="trailing" secondItem="YX0-5X-eBV" secondAttribute="trailing" constant="5" id="eWK-pO-c4O"/>
                     <constraint firstItem="fS2-S0-KhF" firstAttribute="leading" secondItem="bti-91-bgt" secondAttribute="trailing" constant="10" id="g4W-l5-ptm"/>
                     <constraint firstItem="bti-91-bgt" firstAttribute="leading" secondItem="IQc-rj-CiS" secondAttribute="leading" constant="10" id="t6p-TX-YGV"/>
                 </constraints>
@@ -59,7 +45,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="chevron.right.to.line" catalog="system" width="104" height="128"/>
         <image name="display" catalog="system" width="128" height="101"/>
     </resources>
 </document>

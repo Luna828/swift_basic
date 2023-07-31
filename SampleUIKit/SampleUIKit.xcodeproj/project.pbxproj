@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		FB2294FF2A7398120018E64A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2294FE2A7398120018E64A /* ViewController.swift */; };
+		FBB3BD562A780CE700FEDCA4 /* toggleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBB3BD552A780CE700FEDCA4 /* toggleCell.xib */; };
+		FBB3BD582A780ECB00FEDCA4 /* toggleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB3BD572A780ECB00FEDCA4 /* toggleCell.swift */; };
 		FBC41C122A6FA58F0076FAD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC41C112A6FA58F0076FAD3 /* AppDelegate.swift */; };
 		FBC41C142A6FA58F0076FAD3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC41C132A6FA58F0076FAD3 /* SceneDelegate.swift */; };
 		FBC41C162A6FA58F0076FAD3 /* sound in Sources */ = {isa = PBXBuildFile; fileRef = FBC41C152A6FA58F0076FAD3 /* sound */; };
@@ -22,6 +24,8 @@
 
 /* Begin PBXFileReference section */
 		FB2294FE2A7398120018E64A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FBB3BD552A780CE700FEDCA4 /* toggleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = toggleCell.xib; sourceTree = "<group>"; };
+		FBB3BD572A780ECB00FEDCA4 /* toggleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toggleCell.swift; sourceTree = "<group>"; };
 		FBC41C0E2A6FA58F0076FAD3 /* SampleUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBC41C112A6FA58F0076FAD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBC41C132A6FA58F0076FAD3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +82,8 @@
 				FBC41C2B2A71518F0076FAD3 /* SettingCell.xib */,
 				FBC41C2D2A7152820076FAD3 /* SettingCell.swift */,
 				FB2294FE2A7398120018E64A /* ViewController.swift */,
+				FBB3BD552A780CE700FEDCA4 /* toggleCell.xib */,
+				FBB3BD572A780ECB00FEDCA4 /* toggleCell.swift */,
 			);
 			path = SampleUIKit;
 			sourceTree = "<group>";
@@ -145,6 +151,7 @@
 				FBC41C272A70A4120076FAD3 /* TableViewNameCell.xib in Resources */,
 				FBC41C1B2A6FA5900076FAD3 /* Assets.xcassets in Resources */,
 				FBC41C192A6FA58F0076FAD3 /* Main.storyboard in Resources */,
+				FBB3BD562A780CE700FEDCA4 /* toggleCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +165,7 @@
 				FB2294FF2A7398120018E64A /* ViewController.swift in Sources */,
 				FBC41C162A6FA58F0076FAD3 /* sound in Sources */,
 				FBC41C122A6FA58F0076FAD3 /* AppDelegate.swift in Sources */,
+				FBB3BD582A780ECB00FEDCA4 /* toggleCell.swift in Sources */,
 				FBC41C292A70D4D30076FAD3 /* TableViewNameCell.swift in Sources */,
 				FBC41C2E2A7152820076FAD3 /* SettingCell.swift in Sources */,
 				FBC41C142A6FA58F0076FAD3 /* SceneDelegate.swift in Sources */,

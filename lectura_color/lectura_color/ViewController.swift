@@ -7,34 +7,28 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIScrollViewDelegate {
+    var scrollView: UIScrollView!
+    var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        scrollView = UIScrollView(frame: CGRect(origin: CGPoint(x: 0, y: 300), size: CGSize(width: view.bounds.width, height: 300)))
+        scrollView.delegate = self
         
-        let btn = UIButton(frame: CGRect(x: 100, y: 100, width: 200, height: 50))
-        btn.setTitle("button", for: .normal)
-        btn.backgroundColor = .blue
-        btn.addTarget(self, action: #selector(btnAction2), for: .touchUpInside)
-        self.view.addSubview(btn)
+        let image = UIImage(systemName: "folder.fill")
+        imageView = UIImageView(image: image)
+        imageView.contentMode = .scaleAspectFit
+        imageView.frame = CGRect(origin: .zero, size: CGSize(width: 100, height: 100))
         
-        let mySwitch = UISwitch(frame: CGRect(x: 200, y: 200, width: 100, height: 100))
-        mySwitch.isOn = true
-        mySwitch.onTintColor = .green
-        mySwitch.thumbTintColor = .white
-        mySwitch.addTarget(self, action: #selector(switchToggle), for: .valueChanged)
-        self.view.addSubview(mySwitch)
+        scrollView.addSubview(imageView)
+        
+        scrollView.contentSize
+        = CGSize(width: view.bounds.width * 2, height: 300 * 2)
+        
+        view.addSubview(scrollView)
+        
         
     }
-    @objc func switchToggle(){
-        print("switch value changed")
-    }
-    
-    
-    @objc func btnAction2(){
-        printContent("push")
-    }
-    
-    
 }
 

@@ -9,19 +9,26 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        let myView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        myView.backgroundColor = UIColor.red
-        self.view.addSubview(myView)
-        myView.frame = CGRect(x: 50, y: 50, width: 200, height: 200)
+        
+        let button = UIButton(type: .system)
+        button.setTitle("Push View Controller", for: .normal)
+        button.addTarget(self, action: #selector(pushViewController), for: .touchUpInside)
+        button.frame = CGRect(x: 200, y: 200, width: 200, height: 100)
+        self.view.addSubview(button)
+        
         
         print("viewDidLoad")
     }
 
+    @objc func pushViewController() {
+        let newViewController = UIViewController()
+        newViewController.title = "New view Controller"
+        newViewController.view.backgroundColor = .black
+        navigationController?.pushViewController(newViewController, animated: true)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("viewWillAppear")

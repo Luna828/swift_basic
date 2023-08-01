@@ -1,10 +1,3 @@
-//
-//  MemoTableViewController.swift
-//  LunaMemoApp
-//
-//  Created by t2023-m0050 on 2023/08/01.
-//
-
 import UIKit
 
 class MemoTableViewController: UITableViewController {
@@ -16,8 +9,8 @@ class MemoTableViewController: UITableViewController {
 
     }
 
-     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+    func numberOxfSections(in tableView: UITableView) -> Int {
+        
         return 0
     }
 
@@ -31,15 +24,12 @@ class MemoTableViewController: UITableViewController {
         
         memoTableView.register(UINib(nibName: "MemoCell", bundle: nil), forCellReuseIdentifier: "MemoCell")
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MemoCell", for: indexPath) as! MemoCell
+         let cell = tableView.dequeueReusableCell(withIdentifier: "MemoCell", for: indexPath) as! MemoCell
+        
         let memo = Memo.dummyMemoList[indexPath.row]
         
-         cell.memoTitle.text = memo.content
+        cell.memoTitle?.text = memo.content
          cell.memoDate.text = memo.date.description
-//
-//        cell.textLabel?.text = memo.content
-//        cell.detailTextLabel?.text  = memo.date.description
-        
 
         return cell
     }

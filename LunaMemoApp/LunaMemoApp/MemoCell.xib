@@ -8,45 +8,34 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemoCell" rowHeight="85" id="LOn-KR-Qzk" customClass="MemoCell">
-            <rect key="frame" x="0.0" y="0.0" width="417" height="85"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemoCell" textLabel="4m9-QB-eGn" detailTextLabel="tyv-QH-7aU" rowHeight="79" style="IBUITableViewCellStyleSubtitle" id="LOn-KR-Qzk" customClass="MemoCell" customModule="LunaMemoApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="417" height="79"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LOn-KR-Qzk" id="f9N-GQ-5uf">
-                <rect key="frame" x="0.0" y="0.0" width="417" height="85"/>
+                <rect key="frame" x="0.0" y="0.0" width="417" height="79"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="06N-sy-XCO">
-                        <rect key="frame" x="10.000000000000004" y="29.333333333333332" width="44.333333333333343" height="45.666666666666671"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Tla-qM-xwP">
-                                <rect key="frame" x="0.0" y="0.0" width="44.333333333333336" height="45.666666666666664"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRr-Xo-MWt">
-                                        <rect key="frame" x="0.0" y="0.0" width="44.333333333333336" height="20.333333333333332"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0Z-C9-O2f">
-                                        <rect key="frame" x="0.0" y="25.333333333333336" width="44.333333333333336" height="20.333333333333336"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                    </stackView>
+                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4m9-QB-eGn">
+                        <rect key="frame" x="19.999999999999996" y="20.333333333333336" width="34.666666666666664" height="19.333333333333332"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tyv-QH-7aU">
+                        <rect key="frame" x="19.999999999999996" y="42.333333333333329" width="43.666666666666664" height="14.333333333333334"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
-                <constraints>
-                    <constraint firstAttribute="bottom" secondItem="06N-sy-XCO" secondAttribute="bottom" constant="10" id="cer-lp-JzY"/>
-                </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="memoDate" destination="s0Z-C9-O2f" id="mkY-c6-yHC"/>
-                <outlet property="memoTitle" destination="SRr-Xo-MWt" id="rn5-GU-yQe"/>
+                <outlet property="memoDate" destination="tyv-QH-7aU" id="a8t-pr-6xw"/>
+                <outlet property="memoTitle" destination="4m9-QB-eGn" id="Hy1-7x-UmQ"/>
             </connections>
-            <point key="canvasLocation" x="-322.90076335877859" y="-98.239436619718319"/>
+            <point key="canvasLocation" x="-322.90076335877859" y="-96.126760563380287"/>
         </tableViewCell>
     </objects>
 </document>

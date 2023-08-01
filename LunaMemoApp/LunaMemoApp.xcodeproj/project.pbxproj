@@ -9,21 +9,33 @@
 /* Begin PBXBuildFile section */
 		FB900E1A2A789D1D00148681 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB900E192A789D1D00148681 /* AppDelegate.swift */; };
 		FB900E1C2A789D1D00148681 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB900E1B2A789D1D00148681 /* SceneDelegate.swift */; };
-		FB900E1E2A789D1D00148681 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB900E1D2A789D1D00148681 /* ViewController.swift */; };
 		FB900E212A789D1D00148681 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB900E1F2A789D1D00148681 /* Main.storyboard */; };
 		FB900E232A789D1E00148681 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB900E222A789D1E00148681 /* Assets.xcassets */; };
 		FB900E262A789D1E00148681 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB900E242A789D1E00148681 /* LaunchScreen.storyboard */; };
+		FB900E2F2A78C19000148681 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB900E2E2A78C19000148681 /* Model.swift */; };
+		FB900E312A78C31000148681 /* FolderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB900E302A78C31000148681 /* FolderTableViewController.swift */; };
+		FB900E332A78CD7500148681 /* FolderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB900E322A78CD7500148681 /* FolderCell.xib */; };
+		FB900E352A78D2BF00148681 /* FolderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB900E342A78D2BF00148681 /* FolderCell.swift */; };
+		FBF358852A78E84700E037A3 /* MemoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF358842A78E84700E037A3 /* MemoTableViewController.swift */; };
+		FBF358872A78F0A700E037A3 /* MemoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBF358862A78F0A700E037A3 /* MemoCell.xib */; };
+		FBF358892A78F16100E037A3 /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF358882A78F16100E037A3 /* MemoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FB900E162A789D1D00148681 /* LunaMemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LunaMemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB900E192A789D1D00148681 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB900E1B2A789D1D00148681 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FB900E1D2A789D1D00148681 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FB900E202A789D1D00148681 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FB900E222A789D1E00148681 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB900E252A789D1E00148681 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB900E272A789D1E00148681 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB900E2E2A78C19000148681 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		FB900E302A78C31000148681 /* FolderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderTableViewController.swift; sourceTree = "<group>"; };
+		FB900E322A78CD7500148681 /* FolderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FolderCell.xib; sourceTree = "<group>"; };
+		FB900E342A78D2BF00148681 /* FolderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderCell.swift; sourceTree = "<group>"; };
+		FBF358842A78E84700E037A3 /* MemoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoTableViewController.swift; sourceTree = "<group>"; };
+		FBF358862A78F0A700E037A3 /* MemoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemoCell.xib; sourceTree = "<group>"; };
+		FBF358882A78F16100E037A3 /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +68,29 @@
 		FB900E182A789D1D00148681 /* LunaMemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				FB900E2D2A78C18400148681 /* Model */,
 				FB900E192A789D1D00148681 /* AppDelegate.swift */,
 				FB900E1B2A789D1D00148681 /* SceneDelegate.swift */,
-				FB900E1D2A789D1D00148681 /* ViewController.swift */,
 				FB900E1F2A789D1D00148681 /* Main.storyboard */,
 				FB900E222A789D1E00148681 /* Assets.xcassets */,
 				FB900E242A789D1E00148681 /* LaunchScreen.storyboard */,
 				FB900E272A789D1E00148681 /* Info.plist */,
+				FB900E302A78C31000148681 /* FolderTableViewController.swift */,
+				FB900E322A78CD7500148681 /* FolderCell.xib */,
+				FB900E342A78D2BF00148681 /* FolderCell.swift */,
+				FBF358842A78E84700E037A3 /* MemoTableViewController.swift */,
+				FBF358862A78F0A700E037A3 /* MemoCell.xib */,
+				FBF358882A78F16100E037A3 /* MemoCell.swift */,
 			);
 			path = LunaMemoApp;
+			sourceTree = "<group>";
+		};
+		FB900E2D2A78C18400148681 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FB900E2E2A78C19000148681 /* Model.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +154,8 @@
 				FB900E262A789D1E00148681 /* LaunchScreen.storyboard in Resources */,
 				FB900E232A789D1E00148681 /* Assets.xcassets in Resources */,
 				FB900E212A789D1D00148681 /* Main.storyboard in Resources */,
+				FBF358872A78F0A700E037A3 /* MemoCell.xib in Resources */,
+				FB900E332A78CD7500148681 /* FolderCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,9 +166,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB900E1E2A789D1D00148681 /* ViewController.swift in Sources */,
+				FBF358892A78F16100E037A3 /* MemoCell.swift in Sources */,
+				FB900E2F2A78C19000148681 /* Model.swift in Sources */,
+				FB900E352A78D2BF00148681 /* FolderCell.swift in Sources */,
 				FB900E1A2A789D1D00148681 /* AppDelegate.swift in Sources */,
 				FB900E1C2A789D1D00148681 /* SceneDelegate.swift in Sources */,
+				FB900E312A78C31000148681 /* FolderTableViewController.swift in Sources */,
+				FBF358852A78E84700E037A3 /* MemoTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

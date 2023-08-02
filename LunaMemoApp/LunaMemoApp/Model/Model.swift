@@ -11,14 +11,14 @@ class Memo {
     var content: String
     var date: Date
     
-    init(content: String) {
+    init(content: String, date: Date) {
         self.content = content
-        date = Date()
+        self.date = date
     }
     
     static var dummyMemoList = [
-        Memo(content: "은행 예금하기"),
-        Memo(content: "낮잠 자야함 (엄근진)")
+        Memo(content: "은행 예금하기", date: Date()),
+        Memo(content: "낮잠 자야함", date: Date())
     ]
 }
 

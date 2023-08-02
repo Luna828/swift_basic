@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93C8C88943E856E0BF5FE0B4 /* Pods_LunaMemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1CA554BB27D03EBD2BE6398 /* Pods_LunaMemoApp.framework */; };
+		FB09F0962A79E99D00935D08 /* NewMemoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB09F0952A79E99D00935D08 /* NewMemoController.swift */; };
+		FB09F0982A79EE7E00935D08 /* NewMemoController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB09F0972A79EE7E00935D08 /* NewMemoController+Alert.swift */; };
+		FB09F09A2A7A159E00935D08 /* showMemoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB09F0992A7A159E00935D08 /* showMemoController.swift */; };
 		FB900E1A2A789D1D00148681 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB900E192A789D1D00148681 /* AppDelegate.swift */; };
 		FB900E1C2A789D1D00148681 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB900E1B2A789D1D00148681 /* SceneDelegate.swift */; };
 		FB900E212A789D1D00148681 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB900E1F2A789D1D00148681 /* Main.storyboard */; };
@@ -22,6 +26,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		246837729B9873B08DADFC07 /* Pods-LunaMemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunaMemoApp.release.xcconfig"; path = "Target Support Files/Pods-LunaMemoApp/Pods-LunaMemoApp.release.xcconfig"; sourceTree = "<group>"; };
+		9717FE8DE58A8B925FB83656 /* Pods-LunaMemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunaMemoApp.debug.xcconfig"; path = "Target Support Files/Pods-LunaMemoApp/Pods-LunaMemoApp.debug.xcconfig"; sourceTree = "<group>"; };
+		E1CA554BB27D03EBD2BE6398 /* Pods_LunaMemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LunaMemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB09F0952A79E99D00935D08 /* NewMemoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemoController.swift; sourceTree = "<group>"; };
+		FB09F0972A79EE7E00935D08 /* NewMemoController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewMemoController+Alert.swift"; sourceTree = "<group>"; };
+		FB09F0992A7A159E00935D08 /* showMemoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showMemoController.swift; sourceTree = "<group>"; };
 		FB900E162A789D1D00148681 /* LunaMemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LunaMemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB900E192A789D1D00148681 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB900E1B2A789D1D00148681 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,17 +53,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93C8C88943E856E0BF5FE0B4 /* Pods_LunaMemoApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		776FF09B8B5D0F6EC20FA7A1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E1CA554BB27D03EBD2BE6398 /* Pods_LunaMemoApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A3FA5A0DFFA3F3D2A45CAA1C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9717FE8DE58A8B925FB83656 /* Pods-LunaMemoApp.debug.xcconfig */,
+				246837729B9873B08DADFC07 /* Pods-LunaMemoApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		FB900E0D2A789D1D00148681 = {
 			isa = PBXGroup;
 			children = (
 				FB900E182A789D1D00148681 /* LunaMemoApp */,
 				FB900E172A789D1D00148681 /* Products */,
+				A3FA5A0DFFA3F3D2A45CAA1C /* Pods */,
+				776FF09B8B5D0F6EC20FA7A1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,6 +111,9 @@
 				FBF358842A78E84700E037A3 /* MemoTableViewController.swift */,
 				FBF358862A78F0A700E037A3 /* MemoCell.xib */,
 				FBF358882A78F16100E037A3 /* MemoCell.swift */,
+				FB09F0952A79E99D00935D08 /* NewMemoController.swift */,
+				FB09F0972A79EE7E00935D08 /* NewMemoController+Alert.swift */,
+				FB09F0992A7A159E00935D08 /* showMemoController.swift */,
 			);
 			path = LunaMemoApp;
 			sourceTree = "<group>";
@@ -100,9 +133,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB900E2A2A789D1E00148681 /* Build configuration list for PBXNativeTarget "LunaMemoApp" */;
 			buildPhases = (
+				BB7F918A90A0F19EC71FA6D4 /* [CP] Check Pods Manifest.lock */,
 				FB900E122A789D1D00148681 /* Sources */,
 				FB900E132A789D1D00148681 /* Frameworks */,
 				FB900E142A789D1D00148681 /* Resources */,
+				1D6B71510389FE5A7FFA7D5A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -161,17 +196,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1D6B71510389FE5A7FFA7D5A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LunaMemoApp/Pods-LunaMemoApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LunaMemoApp/Pods-LunaMemoApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LunaMemoApp/Pods-LunaMemoApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB7F918A90A0F19EC71FA6D4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LunaMemoApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FB900E122A789D1D00148681 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB09F09A2A7A159E00935D08 /* showMemoController.swift in Sources */,
 				FBF358892A78F16100E037A3 /* MemoCell.swift in Sources */,
 				FB900E2F2A78C19000148681 /* Model.swift in Sources */,
 				FB900E352A78D2BF00148681 /* FolderCell.swift in Sources */,
+				FB09F0982A79EE7E00935D08 /* NewMemoController+Alert.swift in Sources */,
 				FB900E1A2A789D1D00148681 /* AppDelegate.swift in Sources */,
 				FB900E1C2A789D1D00148681 /* SceneDelegate.swift in Sources */,
 				FB900E312A78C31000148681 /* FolderTableViewController.swift in Sources */,
+				FB09F0962A79E99D00935D08 /* NewMemoController.swift in Sources */,
 				FBF358852A78E84700E037A3 /* MemoTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,6 +394,7 @@
 		};
 		FB900E2B2A789D1E00148681 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9717FE8DE58A8B925FB83656 /* Pods-LunaMemoApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -342,6 +423,7 @@
 		};
 		FB900E2C2A789D1E00148681 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 246837729B9873B08DADFC07 /* Pods-LunaMemoApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

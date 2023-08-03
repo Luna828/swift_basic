@@ -7,7 +7,6 @@ class MemoTableViewController: UITableViewController, UISearchBarDelegate {
     
     var index = 0
     
-    
     let formatter: DateFormatter = {
         let f = DateFormatter()
         f.dateStyle = .long
@@ -57,8 +56,8 @@ class MemoTableViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
-            
-            DataManager.shared.memoList.remove(at: indexPath.row)
+            let deleteMemo = DataManager.shared.memoList.remove(at: indexPath.row)
+            DataManager.shared.deleteMemo(deleteMemo)
             tableView.deleteRows(at: [indexPath], with: .fade)
             
         } else if editingStyle == .insert {

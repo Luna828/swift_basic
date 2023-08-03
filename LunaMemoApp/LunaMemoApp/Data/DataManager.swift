@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 class DataManager {
     //싱글톤
@@ -46,6 +47,13 @@ class DataManager {
         
         //데이터를 실제로 저장하고싶다면
         saveContext()
+    }
+    
+    func deleteMemo(_ memo: Memo?){
+        if let memo = memo {
+            mainContext.delete(memo)
+            saveContext()
+        }
     }
     
     lazy var persistentContainer: NSPersistentContainer = {

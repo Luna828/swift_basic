@@ -54,6 +54,18 @@ class MemoTableViewController: UITableViewController, UISearchBarDelegate {
         NotificationCenter.default.addObserver(forName: NewMemoController.newMemoInsert, object: nil, queue: OperationQueue.main, using: {[weak self] (noti) in self?.tableView.reloadData()})
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            
+            DataManager.shared.memoList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+        } else if editingStyle == .insert {
+            
+        }
+    }
+
     func setupToolBar(){
         navigationController?.isToolbarHidden = false
         self.navigationController?.toolbar.tintColor = UIColor.orange

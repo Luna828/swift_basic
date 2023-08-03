@@ -11,6 +11,7 @@ class showMemoController: UIViewController {
 
     var memo: Memo?
   
+    @IBOutlet weak var memoTableView: UITableView!
     
     @IBAction func editMemo(_ sender: Any) {
         performSegue(withIdentifier: "editMemo", sender: nil)
@@ -30,8 +31,20 @@ class showMemoController: UIViewController {
         }
     }
     
+    var token: NSObjectProtocol?
+    
+    deinit {
+        if let token = token {
+            NotificationCenter.default.removeObserver(token)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        token = NotificationCenter.default.addObserver(forName: NewMemoController.memoDidChange, object: nil, queue: OperationQueue.main, using: {
+            [weak self] (noti) in self?.memoTableView.reloadData()
+        })
         
     }
     

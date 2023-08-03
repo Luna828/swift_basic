@@ -18,9 +18,10 @@ class MemoTableViewController: UITableViewController, UISearchBarDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //table view 목록 업데이트
         
-        //tableView.reloadData()
+        //table view 목록 업데이트
+        DataManager.shared.fetchMemo()
+        tableView.reloadData()
     }
     
     var token: NSObjectProtocol?
@@ -68,7 +69,7 @@ class MemoTableViewController: UITableViewController, UISearchBarDelegate {
     func setupToolBarButton() {
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let addMemo = UIBarButtonItem(title: "", image: UIImage(systemName: "square.and.pencil"), target: self, action: #selector(addNewMemoBtn))
-        let title = UIBarButtonItem(title: "\(Memo.dummyMemoList.count)개의 메모", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
+        let title = UIBarButtonItem(title: "\(DataManager.shared.memoList.count)개의 메모", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
         
         
         let barItems = [flexibleSpace, title, flexibleSpace, addMemo]
@@ -93,7 +94,7 @@ class MemoTableViewController: UITableViewController, UISearchBarDelegate {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return Memo.dummyMemoList.count
+        return DataManager.shared.memoList.count
     }
     
     
@@ -103,7 +104,7 @@ class MemoTableViewController: UITableViewController, UISearchBarDelegate {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MemoCell", for: indexPath) as! MemoCell
         
-        let memo = Memo.dummyMemoList[indexPath.row]
+        let memo = DataManager.shared.memoList[indexPath.row]
         
         cell.memoTitle?.text = memo.content
         cell.memoDate.text = formatter.string(for: memo
@@ -115,7 +116,7 @@ class MemoTableViewController: UITableViewController, UISearchBarDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
                 if let vc = segue.destination as? showMemoController {
-                    vc.memo = Memo.dummyMemoList[index]
+                    vc.memo = DataManager.shared.memoList[index]
                 }
     }
   

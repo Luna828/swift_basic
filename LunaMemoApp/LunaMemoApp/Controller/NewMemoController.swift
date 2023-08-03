@@ -22,18 +22,22 @@ class NewMemoController: UIViewController {
             return
         }
         
-        let newMemo = Memo(content: memo, date: Date())
-        Memo.dummyMemoList.append(newMemo)
-        
-        NotificationCenter.default.post(name: NewMemoController.newMemoInsert, object: nil)
-        
+//        let newMemo = Memo(content: memo, date: Date())
+//        Memo.dummyMemoList.append(newMemo)
+        if let target = editMemo {
+            target.content = memo
+            DataManager.shared.saveContext()
+            NotificationCenter.default.post(name: NewMemoController.memoDidChange, object: nil)
+        } else {
+            DataManager.shared.addNewMemo(memo)
+            NotificationCenter.default.post(name: NewMemoController.newMemoInsert, object: nil)
+        }
         navigationController?.popViewController(animated: true)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = .orange
-        print(editMemo?.content)
         
         if let memo = editMemo {
             navigationItem.title = "메모 편집"
@@ -49,4 +53,5 @@ class NewMemoController: UIViewController {
 
 extension NewMemoController {
     static let newMemoInsert = Notification.Name(rawValue: "new Memo")
+    static let memoDidChange = Notification.Name(rawValue: "memoDidChange")
 }

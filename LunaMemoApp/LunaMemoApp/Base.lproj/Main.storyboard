@@ -293,6 +293,9 @@
                     </toolbarItems>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="gI9-dQ-bIf"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="memoTableView" destination="nxT-wC-oqo" id="VTv-VO-Pov"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mxE-dp-c1c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -320,7 +323,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Nrw-K0-5Yc"/>
+        <segue reference="ed6-oI-FEh"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">

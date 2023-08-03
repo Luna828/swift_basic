@@ -9,7 +9,10 @@ import UIKit
 
 class NewMemoController: UIViewController {
     
+    var editMemo: Memo?
+    
     @IBOutlet weak var memoTextView: UITextView!
+    
     
     @IBAction func saveBtn(_ sender: Any) {
         
@@ -29,8 +32,17 @@ class NewMemoController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.tintColor = .orange
+        print(editMemo?.content)
         
-        // Do any additional setup after loading the view.
+        if let memo = editMemo {
+            navigationItem.title = "메모 편집"
+            memoTextView.text = memo.content
+        } else {
+            navigationItem.title = "새 메모"
+            memoTextView.text = ""
+        }
+
     }
     
 }

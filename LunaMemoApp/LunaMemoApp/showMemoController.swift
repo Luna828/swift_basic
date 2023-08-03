@@ -8,8 +8,13 @@
 import UIKit
 
 class showMemoController: UIViewController {
-    
+
     var memo: Memo?
+  
+    
+    @IBAction func editMemo(_ sender: Any) {
+        performSegue(withIdentifier: "editMemo", sender: nil)
+    }
     
     let formatter: DateFormatter = {
         let f = DateFormatter()
@@ -19,11 +24,15 @@ class showMemoController: UIViewController {
         return f
     }()
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? NewMemoController {
+            vc.editMemo = memo
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Memo content:", memo?.content)
-        print("Memo date:", memo?.date)
-        // Do any additional setup after loading the view.
+        
     }
     
 }

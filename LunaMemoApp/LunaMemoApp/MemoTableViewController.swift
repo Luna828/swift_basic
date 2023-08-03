@@ -1,7 +1,7 @@
 import UIKit
 
 
-class MemoTableViewController: UITableViewController {
+class MemoTableViewController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet var memoTableView: UITableView!
     
@@ -33,9 +33,52 @@ class MemoTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.tintColor = .orange
+        
+        self.setupToolBar()
+        self.setupToolBarButton()
+        
+        let didPerformSearch: Bool = false
+        
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.delegate = self
+        navigationItem.searchController = searchController
+        
+        if didPerformSearch == true {
+        } else {
+            memoTableView.isHidden = false
+        }
         
         //observer 추가
         NotificationCenter.default.addObserver(forName: NewMemoController.newMemoInsert, object: nil, queue: OperationQueue.main, using: {[weak self] (noti) in self?.tableView.reloadData()})
+    }
+    
+    func setupToolBar(){
+        navigationController?.isToolbarHidden = false
+        self.navigationController?.toolbar.tintColor = UIColor.orange
+        
+    }
+    
+    func setupAppearance(){
+        let appearance = UIToolbarAppearance()
+        appearance.configureWithOpaqueBackground()
+        navigationController?.toolbar.scrollEdgeAppearance = appearance
+    }
+    
+    func setupToolBarButton() {
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let addMemo = UIBarButtonItem(title: "", image: UIImage(systemName: "square.and.pencil"), target: self, action: #selector(addNewMemoBtn))
+        let title = UIBarButtonItem(title: "\(Memo.dummyMemoList.count)개의 메모", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
+        
+        
+        let barItems = [flexibleSpace, title, flexibleSpace, addMemo]
+        
+        self.toolbarItems = barItems
+        
+    }
+    
+    @objc func addNewMemoBtn(_ sender: Any?){
+        performSegue(withIdentifier: "newMemo", sender: nil)
     }
     
     func numberOxfSections(in tableView: UITableView) -> Int {

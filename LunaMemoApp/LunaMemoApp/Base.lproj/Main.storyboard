@@ -45,7 +45,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tfO-Nn-rXN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="525" y="-23"/>
+            <point key="canvasLocation" x="-308" y="-330"/>
         </scene>
         <!--새 폴더 추가-->
         <scene sceneID="oag-0E-Naa">
@@ -87,7 +87,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WAc-3h-f4x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="533.58778625954199" y="698.59154929577471"/>
+            <point key="canvasLocation" x="-431" y="532"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JBC-HU-uxG">
@@ -104,7 +104,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CZ3-pS-lHl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-369" y="699"/>
+            <point key="canvasLocation" x="-1240" y="532"/>
         </scene>
         <!--Memo-->
         <scene sceneID="yBx-Pi-u59">
@@ -152,17 +152,11 @@
                         <barButtonItem systemItem="compose" id="I2b-bI-nKg">
                             <color key="tintColor" systemColor="systemOrangeColor"/>
                             <connections>
-                                <segue destination="nHv-pw-gcE" kind="show" id="Nrw-K0-5Yc"/>
+                                <segue destination="nHv-pw-gcE" kind="show" identifier="newMemo" id="Nrw-K0-5Yc"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="Memo" id="f17-rN-Ylu">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Cvb-Tr-G31">
-                            <connections>
-                                <segue destination="nHv-pw-gcE" kind="show" id="ocs-rJ-uUR"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Memo" id="f17-rN-Ylu"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="memoTableView" destination="ZvQ-LQ-aCk" id="gUB-Wz-fPq"/>
@@ -170,9 +164,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QwH-Ao-aPt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1556" y="-23"/>
+            <point key="canvasLocation" x="1071" y="-346"/>
         </scene>
-        <!--새 메모-->
+        <!--New Memo Controller-->
         <scene sceneID="9Qx-fV-ysn">
             <objects>
                 <viewController id="nHv-pw-gcE" customClass="NewMemoController" customModule="LunaMemoApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -211,8 +205,9 @@
                             <constraint firstItem="K7N-ce-llC" firstAttribute="centerX" secondItem="8UH-c3-ePn" secondAttribute="centerX" id="rKq-an-BFM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="새 메모" largeTitleDisplayMode="never" id="5H3-5U-Ce2">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="5H3-5U-Ce2">
                         <barButtonItem key="rightBarButtonItem" title="완료" id="h7F-DP-MBE">
+                            <color key="tintColor" systemColor="systemOrangeColor"/>
                             <connections>
                                 <action selector="saveBtn:" destination="nHv-pw-gcE" id="Pjy-Hd-icj"/>
                             </connections>
@@ -224,7 +219,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s1m-74-lgq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2533.5877862595421" y="-330.28169014084511"/>
+            <point key="canvasLocation" x="2445" y="-346"/>
         </scene>
         <!--Show Memo Controller-->
         <scene sceneID="Jlf-tc-Jrb">
@@ -235,13 +230,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U9G-01-HJd">
-                                <rect key="frame" x="0.0" y="779" width="393" height="44"/>
+                                <rect key="frame" x="0.0" y="759" width="393" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem systemItem="compose" id="gqM-ny-1sh">
-                                        <color key="tintColor" systemColor="systemOrangeColor"/>
-                                    </barButtonItem>
-                                </items>
+                                <items/>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nxT-wC-oqo" userLabel="ShowMemoCell">
                                 <rect key="frame" x="0.0" y="103" width="393" height="676"/>
@@ -291,11 +282,21 @@
                         <viewLayoutGuide key="safeArea" id="5Dy-iP-iwU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem systemItem="edit" id="TQx-0h-mZx">
+                            <color key="tintColor" systemColor="systemOrangeColor"/>
+                            <connections>
+                                <action selector="editMemo:" destination="hv3-1O-agH" id="KxD-I1-8Tx"/>
+                                <segue destination="nHv-pw-gcE" kind="show" identifier="editMemo" id="ed6-oI-FEh"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="gI9-dQ-bIf"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mxE-dp-c1c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2533.5877862595421" y="326.76056338028172"/>
+            <point key="canvasLocation" x="1071" y="532"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0dv-O8-IOQ">
@@ -315,11 +316,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bax-Dx-lzh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-382" y="-23"/>
+            <point key="canvasLocation" x="-1117" y="-330"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Orw-nT-QHA"/>
+        <segue reference="Nrw-K0-5Yc"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">

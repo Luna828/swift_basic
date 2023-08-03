@@ -20,6 +20,7 @@
 		FB900E312A78C31000148681 /* FolderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB900E302A78C31000148681 /* FolderTableViewController.swift */; };
 		FB900E332A78CD7500148681 /* FolderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB900E322A78CD7500148681 /* FolderCell.xib */; };
 		FB900E352A78D2BF00148681 /* FolderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB900E342A78D2BF00148681 /* FolderCell.swift */; };
+		FBE08C072A7B4D9D0044A8C7 /* AddNewFolderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE08C062A7B4D9D0044A8C7 /* AddNewFolderController.swift */; };
 		FBF358852A78E84700E037A3 /* MemoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF358842A78E84700E037A3 /* MemoTableViewController.swift */; };
 		FBF358872A78F0A700E037A3 /* MemoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBF358862A78F0A700E037A3 /* MemoCell.xib */; };
 		FBF358892A78F16100E037A3 /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF358882A78F16100E037A3 /* MemoCell.swift */; };
@@ -43,6 +44,7 @@
 		FB900E302A78C31000148681 /* FolderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderTableViewController.swift; sourceTree = "<group>"; };
 		FB900E322A78CD7500148681 /* FolderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FolderCell.xib; sourceTree = "<group>"; };
 		FB900E342A78D2BF00148681 /* FolderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderCell.swift; sourceTree = "<group>"; };
+		FBE08C062A7B4D9D0044A8C7 /* AddNewFolderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewFolderController.swift; sourceTree = "<group>"; };
 		FBF358842A78E84700E037A3 /* MemoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoTableViewController.swift; sourceTree = "<group>"; };
 		FBF358862A78F0A700E037A3 /* MemoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemoCell.xib; sourceTree = "<group>"; };
 		FBF358882A78F16100E037A3 /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
@@ -98,6 +100,11 @@
 		FB900E182A789D1D00148681 /* LunaMemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				FB900E302A78C31000148681 /* FolderTableViewController.swift */,
+				FBF358842A78E84700E037A3 /* MemoTableViewController.swift */,
+				FB09F0952A79E99D00935D08 /* NewMemoController.swift */,
+				FB09F0972A79EE7E00935D08 /* NewMemoController+Alert.swift */,
+				FB09F0992A7A159E00935D08 /* showMemoController.swift */,
 				FB900E2D2A78C18400148681 /* Model */,
 				FB900E192A789D1D00148681 /* AppDelegate.swift */,
 				FB900E1B2A789D1D00148681 /* SceneDelegate.swift */,
@@ -105,15 +112,11 @@
 				FB900E222A789D1E00148681 /* Assets.xcassets */,
 				FB900E242A789D1E00148681 /* LaunchScreen.storyboard */,
 				FB900E272A789D1E00148681 /* Info.plist */,
-				FB900E302A78C31000148681 /* FolderTableViewController.swift */,
 				FB900E322A78CD7500148681 /* FolderCell.xib */,
 				FB900E342A78D2BF00148681 /* FolderCell.swift */,
-				FBF358842A78E84700E037A3 /* MemoTableViewController.swift */,
 				FBF358862A78F0A700E037A3 /* MemoCell.xib */,
 				FBF358882A78F16100E037A3 /* MemoCell.swift */,
-				FB09F0952A79E99D00935D08 /* NewMemoController.swift */,
-				FB09F0972A79EE7E00935D08 /* NewMemoController+Alert.swift */,
-				FB09F0992A7A159E00935D08 /* showMemoController.swift */,
+				FBE08C062A7B4D9D0044A8C7 /* AddNewFolderController.swift */,
 			);
 			path = LunaMemoApp;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBE08C072A7B4D9D0044A8C7 /* AddNewFolderController.swift in Sources */,
 				FB09F09A2A7A159E00935D08 /* showMemoController.swift in Sources */,
 				FBF358892A78F16100E037A3 /* MemoCell.swift in Sources */,
 				FB900E2F2A78C19000148681 /* Model.swift in Sources */,

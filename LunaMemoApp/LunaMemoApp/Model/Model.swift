@@ -31,7 +31,7 @@ class Folder {
     
     static var dummyFolderList = [
         Folder(content: "iCloud"),
-        Folder(content: "메모")
+//        Folder(content: "메모")
     ]
 }
 

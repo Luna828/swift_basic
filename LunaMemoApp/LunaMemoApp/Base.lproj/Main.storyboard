@@ -12,18 +12,19 @@
         <scene sceneID="GI1-by-tzA">
             <objects>
                 <tableViewController id="z7P-lc-ntx" customClass="FolderTableViewController" customModule="LunaMemoApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="bVQ-rd-4Wb">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="bVQ-rd-4Wb">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <color key="separatorColor" systemColor="labelColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" id="xjo-eP-R9J">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <rect key="frame" x="20" y="38" width="353" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xjo-eP-R9J" id="CA2-8X-Vt2">
-                                    <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="322.66666666666669" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <color key="tintColor" systemColor="linkColor"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="Is8-Hh-bIc" kind="show" identifier="memoPage" id="SjQ-bG-vtr"/>
@@ -38,26 +39,87 @@
                     <navigationItem key="navigationItem" title="Folder" id="jBV-sq-2TS"/>
                     <connections>
                         <outlet property="folderTableView" destination="bVQ-rd-4Wb" id="4GI-dq-GHu"/>
+                        <segue destination="nHv-pw-gcE" kind="show" identifier="addNewMemo" id="Orw-nT-QHA"/>
+                        <segue destination="Xhf-DZ-4R1" kind="show" identifier="addFolder" id="rXM-2V-BOe"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tfO-Nn-rXN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="525" y="-23"/>
         </scene>
-        <!--Memo-->
-        <scene sceneID="yBx-Pi-u59">
+        <!--새 폴더 추가-->
+        <scene sceneID="oag-0E-Naa">
             <objects>
-                <tableViewController id="Is8-Hh-bIc" customClass="MemoTableViewController" customModule="LunaMemoApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="ZvQ-LQ-aCk">
+                <tableViewController id="TOa-D2-2ze" customClass="AddNewFolderController" customModule="LunaMemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Mqx-F9-ycr">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemoCell" textLabel="e6o-S4-5Lg" detailTextLabel="55t-xL-gYx" style="IBUITableViewCellStyleSubtitle" id="pFv-qa-Hzh" customClass="MemoCell" customModule="LunaMemoApp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="bSf-mH-T2S">
                                 <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pFv-qa-Hzh" id="LGp-ql-DiX">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bSf-mH-T2S" id="G8n-Dd-ION">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="TOa-D2-2ze" id="591-Zp-qrl"/>
+                            <outlet property="delegate" destination="TOa-D2-2ze" id="g8l-X5-Pq1"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="새 폴더 추가" id="JXd-By-zSd">
+                        <barButtonItem key="leftBarButtonItem" title="취소" id="9cT-Nh-eX1">
+                            <color key="tintColor" systemColor="systemOrangeColor"/>
+                            <connections>
+                                <action selector="cancelBtn:" destination="TOa-D2-2ze" id="cPV-0Y-gG2"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="완료" id="9Qh-C4-RDv">
+                            <color key="tintColor" systemColor="systemOrangeColor"/>
+                            <connections>
+                                <action selector="confirmBtn:" destination="TOa-D2-2ze" id="aE7-WL-0T3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WAc-3h-f4x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="533.58778625954199" y="698.59154929577471"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JBC-HU-uxG">
+            <objects>
+                <navigationController id="Xhf-DZ-4R1" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="kB5-h5-DRq"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jAA-Cj-OZo">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="TOa-D2-2ze" kind="relationship" relationship="rootViewController" id="6FW-ie-Xpc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CZ3-pS-lHl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-369" y="699"/>
+        </scene>
+        <!--Memo-->
+        <scene sceneID="yBx-Pi-u59">
+            <objects>
+                <tableViewController id="Is8-Hh-bIc" customClass="MemoTableViewController" customModule="LunaMemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="ZvQ-LQ-aCk">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemoCell" textLabel="e6o-S4-5Lg" detailTextLabel="55t-xL-gYx" style="IBUITableViewCellStyleSubtitle" id="pFv-qa-Hzh" customClass="MemoCell" customModule="LunaMemoApp" customModuleProvider="target">
+                                <rect key="frame" x="20" y="38" width="353" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pFv-qa-Hzh" id="LGp-ql-DiX">
+                                    <rect key="frame" x="0.0" y="0.0" width="353" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e6o-S4-5Lg">
@@ -118,15 +180,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8UH-c3-ePn">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8UH-c3-ePn">
                                 <rect key="frame" x="0.0" y="103" width="409" height="749"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <viewLayoutGuide key="contentLayoutGuide" id="MXc-hR-apX"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="ZC9-1L-HaS"/>
                             </scrollView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="안녕" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="K7N-ce-llC">
-                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="103" width="0.0" height="749"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -135,10 +196,19 @@
                         <viewLayoutGuide key="safeArea" id="Uhv-bV-XX6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="K7N-ce-llC" firstAttribute="height" secondItem="8UH-c3-ePn" secondAttribute="height" id="0mC-RT-zLd"/>
                             <constraint firstItem="K7N-ce-llC" firstAttribute="leading" secondItem="Uhv-bV-XX6" secondAttribute="leading" id="6Lj-VV-WhX"/>
                             <constraint firstItem="K7N-ce-llC" firstAttribute="top" secondItem="Uhv-bV-XX6" secondAttribute="top" id="Ezr-pL-OMB"/>
                             <constraint firstAttribute="bottom" secondItem="K7N-ce-llC" secondAttribute="bottom" id="OQB-a8-cIW"/>
+                            <constraint firstItem="K7N-ce-llC" firstAttribute="width" secondItem="8UH-c3-ePn" secondAttribute="width" multiplier="0.96088" id="Vvq-7s-B0f"/>
+                            <constraint firstItem="8UH-c3-ePn" firstAttribute="leading" secondItem="Uhv-bV-XX6" secondAttribute="leading" id="XtQ-La-BBc"/>
+                            <constraint firstAttribute="trailing" secondItem="8UH-c3-ePn" secondAttribute="trailing" id="bQp-ct-GLQ"/>
+                            <constraint firstItem="K7N-ce-llC" firstAttribute="trailing" secondItem="8UH-c3-ePn" secondAttribute="trailing" id="c3n-8w-NSE"/>
+                            <constraint firstItem="K7N-ce-llC" firstAttribute="leading" secondItem="8UH-c3-ePn" secondAttribute="leading" id="edz-1A-meI"/>
+                            <constraint firstItem="8UH-c3-ePn" firstAttribute="top" secondItem="Uhv-bV-XX6" secondAttribute="top" id="h9K-u5-ZeS"/>
+                            <constraint firstAttribute="bottom" secondItem="8UH-c3-ePn" secondAttribute="bottom" id="mmD-Qn-bc4"/>
                             <constraint firstItem="K7N-ce-llC" firstAttribute="trailing" secondItem="Uhv-bV-XX6" secondAttribute="trailing" id="mxr-3u-Ltq"/>
+                            <constraint firstItem="K7N-ce-llC" firstAttribute="centerX" secondItem="8UH-c3-ePn" secondAttribute="centerX" id="rKq-an-BFM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="새 메모" largeTitleDisplayMode="never" id="5H3-5U-Ce2">
@@ -249,17 +319,17 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ocs-rJ-uUR"/>
+        <segue reference="Orw-nT-QHA"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

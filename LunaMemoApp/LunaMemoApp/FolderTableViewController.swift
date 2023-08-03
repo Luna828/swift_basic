@@ -1,13 +1,75 @@
 import UIKit
 
-class FolderTableViewController: UITableViewController {
+class FolderTableViewController: UITableViewController, UISearchBarDelegate {
 
     @IBOutlet var folderTableView: UITableView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //tableView.reloadData()
+    }
+    
+    var token: NSObjectProtocol?
+    
+    deinit {
+        if let token = token {
+            NotificationCenter.default.removeObserver(token)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
+        let didPerformSearch: Bool = false
+        
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.delegate = self
+        navigationItem.searchController = searchController
+        
+        if didPerformSearch == true {
+        } else {
+            folderTableView.isHidden = false
+        }
+        
+        
+        self.setupToolBar()
+        self.setupToolBarButton()
+        
+        NotificationCenter.default.addObserver(forName: AddNewFolderController.newFolderInsert, object: nil, queue: OperationQueue.main, using: {[weak self] (noti) in self?.tableView.reloadData()})
+    }
+    
+    func setupToolBar(){
+        navigationController?.isToolbarHidden = false
+        self.navigationController?.toolbar.tintColor = UIColor.orange
+        
+    }
+    
+    func setupAppearance(){
+        let appearance = UIToolbarAppearance()
+        appearance.configureWithOpaqueBackground()
+        navigationController?.toolbar.scrollEdgeAppearance = appearance
+    }
+    
+    func setupToolBarButton() {
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let addFolder = UIBarButtonItem(title: "", image: UIImage(systemName: "folder.badge.plus"), target: self,action: #selector(addNewFolderBtn))
+        let addMemo = UIBarButtonItem(title: "", image: UIImage(systemName: "square.and.pencil"), target: self, action: #selector(addNewMemoBtn))
+        
+        let barItems = [addFolder, flexibleSpace, flexibleSpace, flexibleSpace, addMemo]
+        
+        self.toolbarItems = barItems
+        
+    }
+    
+    @objc func addNewFolderBtn(_ sender: Any?){
+//        let addNewFolderController = AddNewFolderController()
+//            self.present(addNewFolderController, animated: true, completion: nil)
+        performSegue(withIdentifier: "addFolder", sender: nil)
+    }
+    
+    @objc func addNewMemoBtn(_ sender: Any?){
+        performSegue(withIdentifier: "addNewMemo", sender: nil)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -34,50 +96,4 @@ class FolderTableViewController: UITableViewController {
         return cell
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

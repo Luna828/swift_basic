@@ -13,6 +13,9 @@ class NewMemoController: UIViewController {
     
     @IBOutlet weak var memoTextView: UITextView!
     
+    var initialMemoText: String?
+    var isEditingMemo = false
+    
     
     @IBAction func saveBtn(_ sender: Any) {
         
@@ -38,13 +41,13 @@ class NewMemoController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = .orange
-        
-        if let memo = editMemo {
+    
+        if isEditingMemo, let memo = editMemo {
             navigationItem.title = "메모 편집"
             memoTextView.text = memo.content
         } else {
             navigationItem.title = "새 메모"
-            memoTextView.text = ""
+            memoTextView.text = initialMemoText
         }
 
     }

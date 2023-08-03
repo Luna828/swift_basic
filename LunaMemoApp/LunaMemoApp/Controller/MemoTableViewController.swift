@@ -5,6 +5,8 @@ class MemoTableViewController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet var memoTableView: UITableView!
     
+    var memo: Memo?
+    
     var index = 0
     
     let formatter: DateFormatter = {
@@ -14,6 +16,17 @@ class MemoTableViewController: UITableViewController, UISearchBarDelegate {
         f.locale = Locale(identifier: "Ko_kr")
         return f
     }()
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? NewMemoController {
+            if segue.identifier == "newMemo"{
+                vc.isEditingMemo = false
+            } else if segue.identifier == "showMemo"{
+                vc.isEditingMemo = true
+                vc.editMemo = DataManager.shared.memoList[index]
+            }
+        }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -100,6 +113,7 @@ class MemoTableViewController: UITableViewController, UISearchBarDelegate {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         index = indexPath.row
+        
         performSegue(withIdentifier: "showMemo", sender: nil)
     }
     
@@ -122,13 +136,6 @@ class MemoTableViewController: UITableViewController, UISearchBarDelegate {
             .date)
         
         return cell
-    }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-                if let vc = segue.destination as? showMemoController {
-                    vc.memo = DataManager.shared.memoList[index]
-                }
     }
   
 }

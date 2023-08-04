@@ -36,6 +36,23 @@ class DataManager {
         }
     }
     
+    func searchMemo(keyword: String) -> [Memo] {
+        let request: NSFetchRequest<Memo> = Memo.fetchRequest()
+
+        let predicate = NSPredicate(format: "content CONTAINS[cd] %@", keyword)
+        request.predicate = predicate
+        
+        let sortByDateDesc = NSSortDescriptor(key: "date", ascending: false)
+        request.sortDescriptors = [sortByDateDesc]
+        
+        do {
+            // Fetch the memos that match the search criteria
+            return try mainContext.fetch(request)
+        } catch {
+            print("ERROR")
+            return []
+        }
+    }
     
     func addNewMemo(_ memo: String?){
         //core data가 만들어준 메모기에 context를 전달

@@ -7,6 +7,9 @@ class FolderTableViewController: UITableViewController, UISearchBarDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        //table view 목록 업데이트
+        DataManager.shared.fetchMemo()
+        tableView.reloadData()
     }
     
     var token: NSObjectProtocol?

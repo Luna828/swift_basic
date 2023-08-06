@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -156,7 +157,15 @@
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="Memo" id="f17-rN-Ylu"/>
+                    <navigationItem key="navigationItem" title="Memo" id="f17-rN-Ylu">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="ellipsis" catalog="system" id="pa9-9L-HM7">
+                            <color key="tintColor" systemColor="systemOrangeColor"/>
+                            <connections>
+                                <action selector="showCollectionViewMemo:" destination="Is8-Hh-bIc" id="pE2-A5-UNi"/>
+                                <segue destination="bSK-rf-hgl" kind="show" identifier="showCollectionView" id="OFz-5X-3z5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="memoTableView" destination="ZvQ-LQ-aCk" id="gUB-Wz-fPq"/>
@@ -165,6 +174,73 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QwH-Ao-aPt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1071" y="-346"/>
+        </scene>
+        <!--memo-->
+        <scene sceneID="fS4-vT-AI5">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="bSK-rf-hgl" customClass="showMemoCollectionViewController" customModule="LunaMemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zab-RI-bJx">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="nPp-Dy-NX8">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5Ey-iW-lEF">
+                                    <size key="itemSize" width="102" height="99"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="Cgo-OR-XVe" customClass="memoClass" customModule="LunaMemoApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="102" height="99"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="qoF-sg-vYI" customClass="txtCollectionCell" customModule="LunaMemoApp" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="102" height="99"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="안녕" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3i8-tD-ZJ0">
+                                                    <rect key="frame" x="0.0" y="0.0" width="102" height="99"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="3i8-tD-ZJ0" secondAttribute="bottom" id="TKw-OR-PW0"/>
+                                                <constraint firstAttribute="trailing" secondItem="3i8-tD-ZJ0" secondAttribute="trailing" id="X6a-wk-ZAx"/>
+                                                <constraint firstItem="3i8-tD-ZJ0" firstAttribute="top" secondItem="qoF-sg-vYI" secondAttribute="top" id="XkW-CO-Ufy"/>
+                                                <constraint firstItem="3i8-tD-ZJ0" firstAttribute="leading" secondItem="qoF-sg-vYI" secondAttribute="leading" id="xjq-dB-d5c"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="102" height="99"/>
+                                        <connections>
+                                            <outlet property="label" destination="3i8-tD-ZJ0" id="7n2-La-JQD"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="G5r-T5-Xlx"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nPp-Dy-NX8" firstAttribute="leading" secondItem="G5r-T5-Xlx" secondAttribute="leading" id="0Ya-Ga-fjR"/>
+                            <constraint firstItem="G5r-T5-Xlx" firstAttribute="bottom" secondItem="nPp-Dy-NX8" secondAttribute="bottom" id="Jeo-d9-0Yc"/>
+                            <constraint firstItem="G5r-T5-Xlx" firstAttribute="trailing" secondItem="nPp-Dy-NX8" secondAttribute="trailing" id="PEb-c8-BFP"/>
+                            <constraint firstItem="nPp-Dy-NX8" firstAttribute="top" secondItem="G5r-T5-Xlx" secondAttribute="top" id="bcx-mu-PBw"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="memo" largeTitleDisplayMode="never" id="El6-yx-3bB"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="myCollectionView" destination="nPp-Dy-NX8" id="Gw4-n0-3uB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gk3-89-H5o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1070.9923664122136" y="437.32394366197184"/>
         </scene>
         <!--New Memo Controller-->
         <scene sceneID="9Qx-fV-ysn">
@@ -243,9 +319,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="56d-vP-C7j"/>
+        <segue reference="Nrw-K0-5Yc"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -5,6 +5,10 @@ class MemoTableViewController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet var memoTableView: UITableView!
     
+    @IBAction func showCollectionViewMemo(_ sender: Any) {
+        
+        performSegue(withIdentifier: "showCollectionView", sender: nil)
+    }
     var memo: Memo?
     
     var index = 0

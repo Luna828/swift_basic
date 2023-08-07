@@ -68,6 +68,12 @@ class MemoTableViewController: UITableViewController, UISearchBarDelegate {
         
         //observer 추가
         NotificationCenter.default.addObserver(forName: NewMemoController.newMemoInsert, object: nil, queue: OperationQueue.main, using: {[weak self] (noti) in self?.tableView.reloadData()})
+//        override func viewWillAppear(_ animated: Bool) { // 화면이 새롭게 그려질 때마다 호출됨
+//        myTableView.reloadData()
+//        self.toolbarItems = makeToolbarItems()
+//        dataManager.setData()
+//        print("Page2viewWillAppear")
+//        }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -89,9 +95,6 @@ class MemoTableViewController: UITableViewController, UISearchBarDelegate {
             let deleteMemo = DataManager.shared.memoList.remove(at: indexPath.row)
             DataManager.shared.deleteMemo(deleteMemo)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            
-        } else if editingStyle == .insert {
-            
         }
     }
 
